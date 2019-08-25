@@ -25,28 +25,34 @@ that initiates the google client based on credetials path.
 
 ## Connection settings
 
-### Credentials Path
+### Without a separate Google Client
 
 For Drive service:
 
 ```edn
 {:duct.services.google/drive
-  {:credentials-path "my-creds.json"}
+  {:credential-path "my-creds.json"
+   :application-name "my-app"
+   :scopes [:drive]}}
 ```
 
 For Sheets service:
 
 ```edn
-{:duct.services.google/drive
-  {:credentials-path "my-creds.json"}
+{:duct.services.google/sheets
+  {:credential-path "my-creds.json"
+   :application-name "my-app"
+   :scopes [:sheets}}}}
 ```
 
-### Google Client
+### With a separate Google Client
 
 When you need more than one Google Service, you might want to use the same Google Client for authentication:
 
 ```edn
-{:duct.services.google/client {:credentials-path "my-creds.json"}
+{:duct.services.google/client {:credential-path "my-creds.json"
+                               :application-name "my-app"
+                               :scopes [:drive :sheets}}}
  :duct.services.google/sheets {:client #ig/ref :duct.services.google/client}
  :duct.services.google/drive {:client #ig/ref :duct.services.google/client}}
 ```
