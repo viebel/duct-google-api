@@ -1,8 +1,5 @@
 # Duct services.google-api
 
-TODO: CI
-[![Build Status](https://travis-ci.org/agrison/duct-mongodb.svg?branch=master)](https://travis-ci.org/agrison/duct-mongodb)
-
 [Integrant][] methods for connecting to a [Google API][] database via
 [google-api-clj][].
 
